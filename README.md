@@ -1,66 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![logo](https://user-images.githubusercontent.com/68918326/193332767-8248edfa-cf76-4032-8eed-05bf3037838c.PNG)
 
+<hr>
+<h1 align="center">🎖️Aplicação Base - Laravel + Vue.js + Inertia.js🎖️</h1>
+<hr>
+<br>
+
+
+<h2 align="center">Objetivo</h2>
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  Desenvolver um sistema base para ser utilizado e em todas as aplicações web futuras, tendo como padrão a utilização de tecnologias como Laravel, Vue.js e Inertia.js, tudo isso sem a utilização de kits de inicialização como breeze para iniciar o projeto</p>
+<br>
+<br>
 
-## About Laravel
+<h2 align="center">🚧Configurando o Server-side🚧</h2>
+<br>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+  #### Criar o projeto laravel utilizando o composer
+    📌 composer create-project --prefer-dist laravel/laravel nome-do-seu-projeto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  #### Instalar o adaptador do inertia no laravel
+    📌 composer require inertiajs/inertia-laravel
+  
+  #### Criar um arquivo chamado app.blade.php, no diretório resources/views
+    📌 Com o seguinte código:
+![app-blade](https://user-images.githubusercontent.com/68918326/222423963-ff861496-654f-4bfc-a563-26d452d16889.PNG)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+  #### Criar o middleware do inertia
+    📌 php artisan inertia:middleware
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+  #### Acessar o arquivo App/Http/Kernel.php, e adicionar a linha abaixo ao arquivo:
+    📌 \App\Http\Middleware\HandleInertiaRequests::class
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<br>
+<br>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<h2 align="center">🚧Configurando o Client-side🚧</h2>
+<br>
 
-## Laravel Sponsors
+  #### Instalar o laravel/ui
+    📌 require laravel/ui
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+  #### Informar para o laravel que será usado o vue.js
+    📌 php artisan ui vue
+  
+  #### Instalar as depedências do projeto
+    📌 npm install
 
-### Premium Partners
+  #### Instalar as dependências do inertia para o client-side
+    📌 npm install @inertiajs/inertia @inertiajs/inertia-vue3
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+  #### Modificar o arquivo resources/js/App.js, apagando todo o conteúdo e inserindo o código abaixo:
+![app-js](https://user-images.githubusercontent.com/68918326/222426024-24e3c3fe-919a-4e41-9777-4b20137e5abb.PNG)
 
-## Contributing
+<br>
+<br>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<h2 align="center">🚀Finalizando e testando instalação🚀</h2>
+<br> 
 
-## Code of Conduct
+  #### Criar uma pasta chamada "Pages"
+    ✔️ Criar a pasta em resources/js, no mesmo nível que app.js
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  #### criar um arquivo dentro da pasta "Pages" chamado Teste.vue 
+    ✔️ Com a estrutura abaixo:
+![teste](https://user-images.githubusercontent.com/68918326/222426782-e8f8f543-001b-4858-bfb6-8831d425f3b5.PNG)
 
-## Security Vulnerabilities
+  #### Criar um controller chamado TesteController
+    ✔️ php artisan make:controller TesteController
+    ✔️ Código do TesteController segue abaixo:
+![TesteController](https://user-images.githubusercontent.com/68918326/222427246-1df966f7-f777-486d-9c83-9bf76171e2d8.PNG)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+  #### Configurar a rota no arquivo routes/web.php
+    ✔️ Route::get('/', [TesteController::class, 'index']);
 
-## License
+  #### Inicie o servidor do laravel e a aplicação
+    ✔️ php artisan serve
+    ✔️ npm run watch
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<br>
+<br> 
+
+![appJS](https://user-images.githubusercontent.com/68918326/184671337-013afa79-a43b-4c02-a808-5ae7befc4a1f.PNG)
+<br>
+<br>
