@@ -82,6 +82,6 @@
 <br>
 <br> 
 
-![appJS](https://user-images.githubusercontent.com/68918326/184671337-013afa79-a43b-4c02-a808-5ae7befc4a1f.PNG)
-<br>
-<br>
+<hr>
+<h3 align="center">🎖️PROJETO FINALIZADO🎖️</h3>
+<hr>
