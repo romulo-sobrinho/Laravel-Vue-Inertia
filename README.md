@@ -39,7 +39,7 @@
 <br>
 
   #### Instalar o laravel/ui
-    📌 require laravel/ui
+    📌 composer require laravel/ui
 
   #### Informar para o laravel que será usado o vue.js
     📌 php artisan ui vue
